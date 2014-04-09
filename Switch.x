@@ -2,7 +2,7 @@
 #import "FSSwitchPanel.h"
 #import "notify.h"
 
-#define readReceiptPlist @"/var/mobile/Library/Preferences/com.apple.madrid.plist"
+#define readReceiptPlist @"/var/mobile/Library/Preferences/com.apple.madrid.plist" //This is where the read receipt settings are
 
 @interface ReadReceiptFSSwitch : NSObject <FSSwitchDataSource>
 @end
@@ -10,7 +10,7 @@
 @implementation ReadReceiptFSSwitch
 -(FSSwitchState)stateForSwitchIdentifier:(NSString *)switchIdentifier {
 	NSDictionary* readReceiptSettings = [NSDictionary dictionaryWithContentsOfFile:readReceiptPlist];
-	return [[readReceiptSettings objectForKey:@"ReadReceiptsEnabled"] boolValue] ? FSSwitchStateOn : FSSwitchStateOff;
+	return [[readReceiptSettings objectForKey:@"ReadReceiptsEnabled"] boolValue] ? FSSwitchStateOn : FSSwitchStateOff; //If read receipts are on, the switch is on and vise versa
 }
 
 -(void)applyState:(FSSwitchState)newState forSwitchIdentifier:(NSString *)switchIdentifier {
