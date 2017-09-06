@@ -25,10 +25,10 @@
 		[readReceiptSettings setObject:[NSNumber numberWithBool:NO] forKey:@"ReadReceiptsEnabled"]; //turn read reciepts off!
 	}
 	[readReceiptSettings writeToFile:readReceiptPlist atomically:YES]; //let's change the actual file with the changes we made above
-	notify_post("com.apple.madrid-prefsChanged"); //aye apple, we just changed yo shit!
+	notify_post("com.apple.madrid-prefsChanged"); //update prefs through apple notification
 }
 
 -(NSString *)titleForSwitchIdentifier:(NSString *)switchIdentifier { //the title that shows when you click the flipswitch
-	return @"Read Receipts"; //ya bish
+	return @"Read Receipts"; //title show to user
 }
 @end
